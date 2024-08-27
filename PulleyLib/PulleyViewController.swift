@@ -728,7 +728,7 @@ private let kPulleyDefaultPartialRevealHeight: CGFloat = 264.0
      
      - returns: A newly created Pulley drawer.
      */
-    required public init(contentViewController: UIViewController, drawerViewController: UIViewController) {
+    @objc required public init(contentViewController: UIViewController, drawerViewController: UIViewController) {
         super.init(nibName: nil, bundle: nil)
         
         ({
