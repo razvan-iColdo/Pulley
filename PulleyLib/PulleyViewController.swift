@@ -312,7 +312,7 @@ private let kPulleyDefaultPartialRevealHeight: CGFloat = 264.0
     }
     
     /// The content view controller and drawer controller can receive delegate events already. This lets another object observe the changes, if needed.
-    public weak var delegate: PulleyDelegate?
+    @objc public weak var delegate: PulleyDelegate?
     
     /// The current position of the drawer.
     public fileprivate(set) var drawerPosition: PulleyPosition = .collapsed {
