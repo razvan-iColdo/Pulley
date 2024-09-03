@@ -78,27 +78,27 @@ public typealias PulleyAnimationCompletionBlock = ((_ finished: Bool) -> Void)
  */
 @objc public class PulleyPosition: NSObject {
     
-    public static let collapsed = PulleyPosition(rawValue: 0)
-    public static let partiallyRevealed = PulleyPosition(rawValue: 1)
-    public static let open = PulleyPosition(rawValue: 2)
-    public static let closed = PulleyPosition(rawValue: 3)
+    @objc public static let collapsed = PulleyPosition(rawValue: 0)
+    @objc public static let partiallyRevealed = PulleyPosition(rawValue: 1)
+    @objc public static let open = PulleyPosition(rawValue: 2)
+    @objc public static let closed = PulleyPosition(rawValue: 3)
     
-    public static let all: [PulleyPosition] = [
+    @objc public static let all: [PulleyPosition] = [
         .collapsed,
         .partiallyRevealed,
         .open,
         .closed
     ]
     
-    public static let compact: [PulleyPosition] = [
+    @objc public static let compact: [PulleyPosition] = [
         .collapsed,
         .open,
         .closed
     ]
     
-    public let rawValue: Int
+    @objc public let rawValue: Int
     
-    public init(rawValue: Int) {
+    @objc public init(rawValue: Int) {
         if rawValue < 0 || rawValue > 3 {
             print("PulleyViewController: A raw value of \(rawValue) is not supported. You have to use one of the predefined values in PulleyPosition. Defaulting to `collapsed`.")
             self.rawValue = 0
@@ -111,7 +111,7 @@ public typealias PulleyAnimationCompletionBlock = ((_ finished: Bool) -> Void)
     ///
     /// - Parameter string: The string, preferably obtained by `stringFor(position:)`
     /// - Returns: The `PulleyPosition` or `.collapsed` if the string didn't match.
-    public static func positionFor(string: String?) -> PulleyPosition {
+    @objc public static func positionFor(string: String?) -> PulleyPosition {
         
         guard let positionString = string?.lowercased() else {
             
@@ -506,7 +506,7 @@ private let kPulleyDefaultPartialRevealHeight: CGFloat = 264.0
     }
     
     /// The starting position for the drawer when it first loads
-    public var initialDrawerPosition: PulleyPosition = .collapsed
+    @objc public var initialDrawerPosition: PulleyPosition = .collapsed
     
     /// The display mode for Pulley. Default is 'drawer', which preserves the previous behavior of Pulley. If you want it to adapt automatically, choose 'automatic'. The current display mode is available by using the 'currentDisplayMode' property.
     public var displayMode: PulleyDisplayMode = .drawer {
@@ -1305,7 +1305,7 @@ private let kPulleyDefaultPartialRevealHeight: CGFloat = 264.0
      - parameter animated: Whether or not to animate the change. (Default: true)
      - parameter completion: A block object to be executed when the animation sequence ends. The Bool indicates whether or not the animations actually finished before the completion handler was called. (Default: nil)
      */
-    public func setDrawerPosition(position: PulleyPosition, animated: Bool, completion: PulleyAnimationCompletionBlock? = nil) {
+    @objc public func setDrawerPosition(position: PulleyPosition, animated: Bool, completion: PulleyAnimationCompletionBlock? = nil) {
         guard supportedPositions.contains(position) else {
             
             print("PulleyViewController: You can't set the drawer position to something not supported by the current view controller contained in the drawer. If you haven't already, you may need to implement the PulleyDrawerViewControllerDelegate.")
