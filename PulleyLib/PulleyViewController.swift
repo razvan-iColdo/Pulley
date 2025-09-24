@@ -340,7 +340,7 @@ private let kPulleyDefaultPartialRevealHeight: CGFloat = 264.0
     }
 
     /// The background visual effect layer for the drawer. By default this is the extraLight effect. You can change this if you want, or assign nil to remove it.
-    public var drawerBackgroundVisualEffectView: UIVisualEffectView? = UIVisualEffectView(effect: UIBlurEffect(style: defaultBlurEffect)) {
+    @objc public var drawerBackgroundVisualEffectView: UIVisualEffectView? = UIVisualEffectView(effect: UIBlurEffect(style: defaultBlurEffect)) {
         willSet {
             drawerBackgroundVisualEffectView?.removeFromSuperview()
         }
